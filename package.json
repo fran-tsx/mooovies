@@ -1,8 +1,8 @@
 {
   "author": {
-      "name" : "Francisco Rodriguez",
-      "email" : "fjrodriguez.353@gmail.com",
-      "url" : "http://linkedin.com/in/franncode/"
+    "name": "Francisco Rodriguez",
+    "email": "fjrodriguez.353@gmail.com",
+    "url": "http://linkedin.com/in/franncode/"
   },
   "name": "mooovies",
   "version": "0.1.0",
@@ -15,7 +15,6 @@
   },
   "dependencies": {
     "@next/font": "13.1.6",
-    "@nextui-org/react": "^1.0.0-beta.12",
     "@types/node": "18.11.18",
     "@types/react": "18.0.27",
     "@types/react-dom": "18.0.10",
@@ -24,6 +23,10 @@
     "next": "13.1.6",
     "react": "18.2.0",
     "react-dom": "18.2.0",
+    "styled-components": "^5.3.6",
     "typescript": "4.9.5"
+  },
+  "devDependencies": {
+    "@types/styled-components": "^5.1.26"
   }
 }
