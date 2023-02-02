@@ -1,0 +1,46 @@
+import NextLink from 'next/link'
+import styled from 'styled-components'
+
+export const StyledNavigation = styled.nav`
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+  justify-content: center;
+`
+
+export const Logo = styled.img``
+
+export const Menu = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 1rem;
+`
+
+export const Title = styled.p`
+  color: ${({ theme }) => theme.color.gray.dark};
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+`
+
+export const List = styled.ul`
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  list-style-type: none;
+`
+
+export const Option = styled.li<{ active: boolean }>`
+  align-items: center;
+  color: ${({ active, theme }) =>
+    active ? theme.color.black : theme.color.gray.normal};
+  display: flex;
+  gap: 0.25rem;
+  justify-content: flex-start;
+`
+
+export const Link = styled(NextLink)``
