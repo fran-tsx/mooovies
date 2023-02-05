@@ -3,6 +3,7 @@ import { Head } from '@atoms/head/head'
 import { Navigation } from '@molecules/navigation/navigation'
 import { Suggestions } from '@molecules/suggestions/suggestions'
 import { FC } from 'react'
+import { navigation, suggestions } from './page.data'
 import { Section, StyledPage } from './page.styles'
 import { CTPage } from './page.types'
 
@@ -10,9 +11,9 @@ export const Page: FC<CTPage> = ({ children, title }) => (
   <>
     <Head title={title} />
     <StyledPage>
-      <Navigation />
+      <Navigation options={navigation} />
       <Section>{children}</Section>
-      <Suggestions />
+      <Suggestions sections={suggestions} />
     </StyledPage>
     <Footer />
   </>
