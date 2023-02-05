@@ -1,6 +1,5 @@
 import { useRouter } from 'next/router'
 import { FC } from 'react'
-import { options } from './navigation.data'
 import {
   Link,
   List,
@@ -10,8 +9,9 @@ import {
   StyledNavigation,
   Title,
 } from './navigation.styles'
+import { CTNavigation } from './navigation.types'
 
-export const Navigation: FC = () => {
+export const Navigation: FC<CTNavigation> = ({ options }) => {
   const { route } = useRouter()
 
   return (
