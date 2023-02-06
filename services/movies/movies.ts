@@ -29,7 +29,7 @@ const favorites = async (): Promise<STFavoritesReturn> => {
 const get = async ({ imdbId, title }: STGetParams): Promise<DTMovie> => {
   const by = imdbId ? `i=${imdbId}` : `t=${title}`
   const request = await fetch(
-    `http://www.omdbapi.com/?apikey=${process.env.NEXT_PUBLIC_OMDB_API_KEY}&r=json&plot=full&type=movie&${by}`
+    `${process.env.NEXT_PUBLIC_OMDB_URL}/?apikey=${process.env.NEXT_PUBLIC_OMDB_API_KEY}&r=json&plot=full&type=movie&${by}`
   )
   const movie = await request.json()
   return movie
@@ -41,7 +41,7 @@ const search = async (
   limitResults?: number
 ): Promise<STSearchReturn> => {
   const request = await fetch(
-    `http://www.omdbapi.com/?apikey=${process.env.NEXT_PUBLIC_OMDB_API_KEY}&r=json&type=${type}&s=${text}`
+    `${process.env.NEXT_PUBLIC_OMDB_URL}/?apikey=${process.env.NEXT_PUBLIC_OMDB_API_KEY}&r=json&type=${type}&s=${text}`
   )
   const { Response, Search, totalResults } = await request.json()
   return {
