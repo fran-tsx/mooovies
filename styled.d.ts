@@ -4,7 +4,10 @@ import { theme } from './configs/theme'
 declare module 'styled-components' {
   export interface DefaultTheme {
     color: {
-      accent: '#E53935'
+      accent: {
+        light: '#F9CFCF'
+        normal: '#E53935'
+      }
       black: '#202020'
       gray: {
         dark: '#616161'

@@ -2,7 +2,10 @@ import { createGlobalStyle, DefaultTheme } from 'styled-components'
 
 export const theme: DefaultTheme = {
   color: {
-    accent: '#E53935',
+    accent: {
+      light: '#F9CFCF',
+      normal: '#E53935',
+    },
     black: '#202020',
     gray: {
       dark: '#616161',
@@ -30,6 +33,11 @@ export const StyledComponentsGlobalsProvider = createGlobalStyle`
 body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  
+}
+
+button { 
+  border: none
 }
 
 a {
