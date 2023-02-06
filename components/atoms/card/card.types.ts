@@ -1,3 +1,4 @@
+import { LinkProps } from 'next/link'
 import { ReactNode } from 'react'
 
 export type CTCard = {
@@ -5,6 +6,7 @@ export type CTCard = {
     alt: string
     src: string
   }
+  link: LinkProps
   subtitle: string
   text: string | ReactNode
   title: string

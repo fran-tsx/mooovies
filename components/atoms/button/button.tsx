@@ -21,7 +21,7 @@ export const Button: FC<CTButton> = ({
   if (link) {
     return (
       <Link
-        {...(link as LinkProps)}
+        {...link}
         href={disabled ? '' : typeof link === 'string' ? link : link.href}
         passHref
       >

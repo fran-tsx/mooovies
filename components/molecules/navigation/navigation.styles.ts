@@ -1,12 +1,18 @@
+import { device } from 'configs/theme'
 import NextLink from 'next/link'
 import styled from 'styled-components'
 
 export const StyledNavigation = styled.nav`
-  align-items: center;
+  align-items: flex-start;
   display: flex;
   flex-direction: column;
   gap: 3rem;
   justify-content: center;
+
+  @media (max-width: ${device.tablet}) {
+    gap: 1rem;
+    width: 100%;
+  }
 `
 
 export const Logo = styled.img``
@@ -17,6 +23,9 @@ export const Menu = styled.div`
   align-items: flex-start;
   justify-content: center;
   gap: 1rem;
+
+  @media (max-width: ${device.tablet}) {
+  }
 `
 
 export const Title = styled.p`
@@ -25,6 +34,10 @@ export const Title = styled.p`
   font-weight: 700;
   letter-spacing: 0.12em;
   text-transform: uppercase;
+
+  @media (max-width: ${device.tablet}) {
+    display: none;
+  }
 `
 
 export const List = styled.ul`
@@ -32,6 +45,10 @@ export const List = styled.ul`
   flex-direction: column;
   gap: 0.5rem;
   list-style-type: none;
+
+  @media (max-width: ${device.tablet}) {
+    flex-direction: row;
+  }
 `
 
 export const Option = styled.li<{ active: boolean }>`
@@ -43,4 +60,8 @@ export const Option = styled.li<{ active: boolean }>`
   justify-content: flex-start;
 `
 
-export const Link = styled(NextLink)``
+export const Link = styled(NextLink)`
+  &:hover {
+    color: ${({ theme }) => theme.color.gray.dark};
+  }
+`

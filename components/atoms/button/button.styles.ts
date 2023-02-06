@@ -50,6 +50,7 @@ const tertiaryType = css`
 `
 
 const fourthType = css`
+  background-color: transparent;
   color: ${({ theme }) => theme.color.black};
   padding: 0;
 `

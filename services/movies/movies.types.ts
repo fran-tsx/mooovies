@@ -17,7 +17,7 @@ export type DTMovie = {
   Language: string
   Metascore: string
   Plot: string
-  Poster: string
+  Poster: string | 'N/A'
   Production: string
   Rated: string
   Ratings: DTRating[]
@@ -36,6 +36,10 @@ export type STGetParams = {
   title?: string
 }
 
-export type STSearchReturn = DTMovie | DTMovie[]
+export type STSearchReturn = {
+  results: Pick<DTMovie, 'imdbID' | 'Poster' | 'Title' | 'Type' | 'Year'>[]
+  success: boolean
+  totalResults: string
+}
 
 export type STFavoritesReturn = DTMovie[]

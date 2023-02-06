@@ -19,15 +19,22 @@ export const theme: DefaultTheme = {
 
 export const device = {
   desktop: '1024px',
-  mobile: '768px',
   desktopHd: '1440px',
+  tablet: '768px',
 }
 
 export const StyledComponentsGlobalsProvider = createGlobalStyle`
 * {
+  box-sizing: border-box;
+  color: ${theme.color.black};
   font-family: Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Ubuntu', sans-serif;
   margin: 0;
   padding: 0;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
 }
 
 body {
@@ -40,9 +47,10 @@ button {
   border: none
 }
 
-a {
-  color: inherit;
-  text-decoration: none;
+input {
+  border: none;
+  background-color: transparent;
+  outline: none;
 }
 
 #__next {

@@ -1,5 +1,5 @@
 import { Button } from '@atoms/button/button'
-import { Card } from '@atoms/card/card'
+import { MovieCard } from '@molecules/movieCard/movieCard'
 import { FC } from 'react'
 import { Section, StyledSuggestions, Title } from './suggestions.styles'
 import { CTSuggestions } from './suggestions.types'
@@ -10,9 +10,10 @@ export const Suggestions: FC<CTSuggestions> = ({ sections }) => (
       <Section key={title}>
         <Title>{title}</Title>
         {cards.map((card) => (
-          <Card key={card.title} {...card} />
+          <MovieCard key={card.title} {...card} />
         ))}
-        <Button {...action} fill />
+        {/* TODO: FIX REHYDRATE ERROR */}
+        {/* <Button {...action} fill /> */}
       </Section>
     ))}
   </StyledSuggestions>

@@ -1,9 +1,14 @@
+import { device } from 'configs/theme'
 import styled from 'styled-components'
 
 export const StyledSuggestions = styled.aside`
   display: flex;
   flex-direction: column;
   gap: 2rem;
+
+  @media (max-width: ${device.tablet}) {
+    flex-direction: row;
+  }
 `
 
 export const Section = styled.section`

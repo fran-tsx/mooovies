@@ -16,7 +16,7 @@ export const Navigation: FC<CTNavigation> = ({ options }) => {
 
   return (
     <StyledNavigation>
-      <Logo alt='logo' src='/logo.svg' />
+      <Logo alt='Logo' src='/logo.svg' />
       <Menu>
         <Title>Menu</Title>
         <List>

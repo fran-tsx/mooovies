@@ -3,12 +3,13 @@ import styled from 'styled-components'
 export const StyledCard = styled.article`
   align-items: flex-start;
   display: flex;
-  gap: 0.25rem;
+  gap: 0.5rem;
 `
 
 export const Image = styled.img`
-  width: 3rem;
+  border-radius: 0.25rem;
   height: 4rem;
+  width: 3rem;
 `
 
 export const Texts = styled.div`
@@ -24,6 +25,7 @@ export const Title = styled.p`
 `
 
 export const Subtitle = styled.p`
+  color: ${({ theme }) => theme.color.gray.normal};
   font-size: 0.75rem;
   font-weight: 600;
 `

@@ -1,3 +1,4 @@
+import { mutate } from './movies.mutate'
 import {
   DTMovie,
   STFavoritesReturn,
@@ -28,24 +29,29 @@ const favorites = async (): Promise<STFavoritesReturn> => {
 const get = async ({ imdbId, title }: STGetParams): Promise<DTMovie> => {
   const by = imdbId ? `i=${imdbId}` : `t=${title}`
   const request = await fetch(
-    `http://www.omdbapi.com/?apikey=${process.env.NEXT_PUBLIC_OMDB_API_KEY}&r=json&type=movie&${by}`
+    `http://www.omdbapi.com/?apikey=${process.env.NEXT_PUBLIC_OMDB_API_KEY}&r=json&plot=full&type=movie&${by}`
   )
   const movie = await request.json()
   return movie
 }
 
 const search = async (
-  type: 'movie' | 'series' | 'episode',
-  text?: string
+  text: string,
+  type: 'episode' | 'movie' | 'movie,series' | 'series' = 'movie',
+  limitResults?: number
 ): Promise<STSearchReturn> => {
   const request = await fetch(
     `http://www.omdbapi.com/?apikey=${process.env.NEXT_PUBLIC_OMDB_API_KEY}&r=json&type=${type}&s=${text}`
   )
-  const movies = await request.json()
-  return movies
+  const { Response, Search, totalResults } = await request.json()
+  return {
+    results: Search ? Search.slice(0, limitResults || Search.length) : [],
+    success: Response === 'True',
+    totalResults,
+  }
 }
 
-const top4 = async () => {
+const top3 = async () => {
   const topMovies = [
     {
       imdbId: 'tt0068646',
@@ -68,6 +74,7 @@ const top4 = async () => {
 export const movies = {
   favorites,
   get,
+  mutate,
   search,
-  top4,
+  top3,
 }

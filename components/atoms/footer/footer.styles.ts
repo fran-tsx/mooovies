@@ -1,3 +1,4 @@
+import { device } from 'configs/theme'
 import styled from 'styled-components'
 
 export const StyledFooter = styled.footer`
@@ -7,6 +8,10 @@ export const StyledFooter = styled.footer`
   gap: 0.5rem;
   justify-content: center;
   width: 100%;
+
+  @media (max-width: ${device.tablet}) {
+    margin-top: 2rem;
+  }
 `
 
 export const List = styled.ul`

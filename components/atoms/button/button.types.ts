@@ -7,7 +7,7 @@ export type CTButton = {
   disabled?: boolean
   fill?: boolean
   fourth?: boolean
-  link?: string | LinkProps
+  link?: LinkProps
   onClick?: () => void
   rel?: string
   secondary?: boolean
