@@ -1,5 +1,5 @@
 import { services } from '!services'
-import { Page } from '@organisms/page/page'
+import { Page } from '@templates/page/page'
 import { GetStaticProps, InferGetStaticPropsType, NextPage } from 'next'
 
 const Search: NextPage = ({

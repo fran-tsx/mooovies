@@ -1,5 +1,5 @@
 import { services } from '!services'
-import { Page } from '@organisms/page/page'
+import { Page } from '@templates/page/page'
 import { GetServerSideProps, GetServerSidePropsContext, NextPage } from 'next'
 import { DTMovie } from 'services/movies/movies.types'
 
