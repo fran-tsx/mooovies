@@ -15,7 +15,10 @@ export const StyledNavigation = styled.nav`
   }
 `
 
-export const Logo = styled.img``
+export const Logo = styled.img`
+  height: 1.1875rem;
+  width: 6.0625rem;
+`
 
 export const Menu = styled.div`
   display: flex;
@@ -54,7 +57,7 @@ export const List = styled.ul`
 export const Option = styled.li<{ active: boolean }>`
   align-items: center;
   color: ${({ active, theme }) =>
-    active ? theme.color.black : theme.color.gray.normal};
+    active ? theme.color.black : theme.color.gray.dark};
   display: flex;
   gap: 0.25rem;
   justify-content: flex-start;

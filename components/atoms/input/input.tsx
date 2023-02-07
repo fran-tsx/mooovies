@@ -16,7 +16,7 @@ export const Input: FC<TCInput> = ({
   <StyledInput $fill={fill}>
     {label}
     <Box>
-      <Icon src={icon} />
+      <Icon alt='Input icon' aria-hidden src={icon} />
       <Value
         name={name || label}
         onChange={onChange}

@@ -1,4 +1,4 @@
-import { abortRequestSafe, _fetch } from 'utils/fetcher'
+import { abortRequestSafe, _fetch } from 'utils/_fetch'
 import { mutate } from './movies.mutate'
 import {
   DTMovie,
