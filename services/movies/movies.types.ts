@@ -37,6 +37,7 @@ export type STGetParams = {
 }
 
 export type STSearchReturn = {
+  abort: VoidFunction
   results: Pick<DTMovie, 'imdbID' | 'Poster' | 'Title' | 'Type' | 'Year'>[]
   success: boolean
   totalResults: string
