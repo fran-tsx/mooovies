@@ -1,3 +1,4 @@
+import { abortRequestSafe, _fetch } from 'utils/fetcher'
 import { mutate } from './movies.mutate'
 import {
   DTMovie,
@@ -40,11 +41,17 @@ const search = async (
   type: 'episode' | 'movie' | 'movie,series' | 'series' = 'movie',
   limitResults?: number
 ): Promise<STSearchReturn> => {
-  const request = await fetch(
-    `${process.env.NEXT_PUBLIC_OMDB_URL}/?apikey=${process.env.NEXT_PUBLIC_OMDB_API_KEY}&r=json&type=${type}&s=${text}`
+  const signalKey = 'SEARCH_SERVICE'
+  const request = await _fetch(
+    `${process.env.NEXT_PUBLIC_OMDB_URL}/?apikey=${process.env.NEXT_PUBLIC_OMDB_API_KEY}&r=json&type=${type}&s=${text}`,
+    {
+      signalKey,
+    }
   )
   const { Response, Search, totalResults } = await request.json()
+  const abort = () => abortRequestSafe(signalKey)
   return {
+    abort,
     results: Search ? Search.slice(0, limitResults || Search.length) : [],
     success: Response === 'True',
     totalResults,

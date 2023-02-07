@@ -55,16 +55,19 @@ const Search: NextPage = ({
   const [status, setStatus] = useState<
     'error' | 'loading' | 'not found' | 'success' | 'waiting'
   >(initial.status)
+  const [abort, setAbort] = useState<VoidFunction>()
   const selectedFilter = filters.filter(({ active }) => active)[0].value
 
   const searchMovie = async (text: string) => {
+    if (abort) abort()
     try {
       setStatus('loading')
-      const { results, success } = await services.movies.search(
+      const { abort, results, success } = await services.movies.search(
         text,
         selectedFilter,
         5
       )
+      setAbort(abort)
       setStatus(success ? 'success' : 'not found')
       setResults(success ? results : [])
     } catch (error) {
