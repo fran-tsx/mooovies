@@ -13,14 +13,14 @@ import {
   NextPage,
 } from 'next'
 import { useRouter } from 'next/router'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { DTMovie } from 'services/movies/movies.types'
 
 const Search: NextPage = ({
   initial,
   suggestions,
 }: InferGetServerSidePropsType<typeof getServerSideProps>) => {
-  const { push } = useRouter()
+  const { push, query } = useRouter()
   const [search, setSearch] = useState<string>(initial.search)
   const [filters, setFilters] = useState<
     Array<{
@@ -92,6 +92,15 @@ const Search: NextPage = ({
     }))
     setFilters(nextFilters)
   }
+
+  useEffect(() => {
+    if (!query?.keyword) {
+      setSearch('')
+      setResults([])
+      setStatus('waiting')
+      setAbort(undefined)
+    }
+  }, [query])
 
   return (
     <Page suggestions={suggestions} title='Search'>
