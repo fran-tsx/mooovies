@@ -1,10 +1,7 @@
 import { services } from '!services'
 import { Input } from '@atoms/input/input'
-import { RatedCard } from '@atoms/ratedCard/ratedCard'
-import { Skeleton } from '@atoms/skeleton/skeleton'
 import { Selector } from '@molecules/selector/selector'
 import { CTSuggestions } from '@molecules/suggestions/suggestions.types'
-import { Results, Text } from '@pages/search/search.styles'
 import { Page } from '@templates/page/page'
 import {
   GetServerSideProps,
@@ -12,9 +9,23 @@ import {
   InferGetServerSidePropsType,
   NextPage,
 } from 'next'
+import dynamic from 'next/dynamic'
 import { useRouter } from 'next/router'
 import { useEffect, useState } from 'react'
 import { DTMovie } from 'services/movies/movies.types'
+
+const Text = dynamic(() =>
+  import('@pages/search/search.styles').then(({ Text }) => Text)
+)
+const Results = dynamic(() =>
+  import('@pages/search/search.styles').then(({ Results }) => Results)
+)
+const Skeleton = dynamic(() =>
+  import('@atoms/skeleton/skeleton').then(({ Skeleton }) => Skeleton)
+)
+const RatedCard = dynamic(() =>
+  import('@atoms/ratedCard/ratedCard').then(({ RatedCard }) => RatedCard)
+)
 
 const Search: NextPage = ({
   initial,
